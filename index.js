@@ -5,12 +5,18 @@ import './style.css';
 import Header from './header';
 import Router from './Router'
 import Footer from './footer';
-import {
+import LoginPage from './loginpage'
+import { Provider } from 'react-redux'
+import { createStore   } from 'redux'
+import rootReducer from './reducer'
+ import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+
+const store = createStore(rootReducer)
 
 class App extends Component {
   constructor() {
@@ -26,7 +32,7 @@ class App extends Component {
     return (
       <div class="wrapper">
       <Header takeclick={this.myclick} author="himmat" text="working in reliance jio"/>
-           <Router />
+           <LoginPage />
          <Footer />
       </div>
      
@@ -34,4 +40,8 @@ class App extends Component {
   }
 }
 
-render(<App />, document.getElementById('root'));
+render(
+  <Provider store={store}>
+     <App />
+  </Provider>
+  , document.getElementById('root'));
