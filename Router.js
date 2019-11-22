@@ -6,6 +6,10 @@ import {
   Link
 } from "react-router-dom";
 import './style.css';
+import Users from './users'
+import About from './about'
+import Home from './home'
+import LoginPage from './loginpage'
 
 export default function Router() {
   return (
@@ -34,23 +38,12 @@ export default function Router() {
           <Route path="/users">
             <Users />
           </Route>
+          
           <Route path="/">
-            <Home />
+            <LoginPage />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
