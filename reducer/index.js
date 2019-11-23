@@ -1,3 +1,4 @@
+import * as actionTypes from '../actions/ActionTypes';
 
 const initilState = {
   uname: '',
@@ -9,7 +10,7 @@ const login = (state = initilState, action) => {
   
   console.log(action)
    switch(action.type) {
-      case 'LOGIN_ADD':
+      case actionTypes.MY_LOGIN:
 
       console.log("test");
         return {

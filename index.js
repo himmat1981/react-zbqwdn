@@ -20,9 +20,22 @@ const initilState = {
   uname: '',
   pass: ""
 }
+
+/* MiddleWare: logger */
+const logger = store => {
+  return next => {
+    return action => {
+      console.log('[middleWare]: dispatching', action);
+      const result = next(action);
+      console.log('[middleWare]: nextState', store.getState());
+      return result;
+    }
+  }
+}
+
 const store = createStore(login,
 initilState,
-applyMiddleware(thunk)
+applyMiddleware(logger, thunk)
 )
 
 class App extends Component {

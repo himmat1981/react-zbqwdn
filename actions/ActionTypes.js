@@ -1,0 +1,1 @@
+export const MY_LOGIN = 'MY_LOGIN';

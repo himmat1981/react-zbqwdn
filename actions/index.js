@@ -1,10 +1,12 @@
+import * as actionTypes from './ActionTypes';
+
 export const login = (
   uname,
   pass
 ) => {
-  console.log(uname);
+  console.log(pass);
   return {
-    type: "LOGIN_ADD",
+    type: actionTypes.MY_LOGIN,
     payload: {
       uname,
       pass
