@@ -1,24 +1,21 @@
 import * as actionTypes from '../actions/ActionTypes';
 
-const initilState = {
-  uname: '',
-  pass: ""
+const initialState = {
+  username: "",
+  password: ""
 }
+console.log('dfs')
+const reducer = (state = initialState, action) => {
+  console.log("action" + action.type)
+  const stateClone = {...state};
+  switch(action.type) {
+    case actionTypes.MY_LOGIN: stateClone.username = "himmat"; 
+    break;
+   default:
+   break;
+  }
+  console.log('stateClone.loading: ' + stateClone.username);
+  return stateClone;
+};
 
-
-const login = (state = initilState, action) => {
-  
-  console.log(action)
-   switch(action.type) {
-      case actionTypes.MY_LOGIN:
-
-      console.log("test");
-        return {
-          ...state,
-        paylod:action.payload
-        }
- 
-   }
-}
-
-export default login;
+export default reducer;

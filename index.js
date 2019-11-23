@@ -7,15 +7,20 @@ import Router from './Router'
 import Footer from './footer';
 import LoginPage from './loginpage'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware    } from 'redux'
+import { createStore, compose, combineReducers, applyMiddleware    } from 'redux'
 import thunk from 'redux-thunk';
-import login from './reducer'
+import reducer from './reducer'
  import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+
+const rootReducer = combineReducers({               /**/
+  counter: reducer
+});
+
 const initilState = {
   uname: '',
   pass: ""
@@ -33,8 +38,8 @@ const logger = store => {
   }
 }
 
-const store = createStore(login,
-initilState,
+const store = createStore(reducer,
+null,
 applyMiddleware(logger, thunk)
 )
 
@@ -42,7 +47,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'React'
+      name: 'React',
+      
     };
   }
   myclick = () => {

@@ -81,11 +81,13 @@ class LoginPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  success: state,
+  success: state.counter,
 })
 
+
+
 const mapDispatchToProps = dispatch => ({
-   login : (uname, pass) => dispatch(login(uname, pass))
+   login : (uname, pass) => bindActionCreators(login(uname, pass, dispatch))
 })
 
 export default connect(
