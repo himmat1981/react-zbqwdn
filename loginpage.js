@@ -64,6 +64,7 @@ class LoginPage extends Component {
               {this.state.error}
             </h3>
           }
+         <p>{this.props.success}</p>
           <label>User Name</label>
           <input type="text" data-test="username" value={this.state.username} onChange={this.handleUserChange} />
 
@@ -82,7 +83,7 @@ class LoginPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  success: state,
+  success: state.suc,
 })
 
 const mapDispatchToProps = dispatch => {

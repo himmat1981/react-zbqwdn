@@ -1,22 +1,18 @@
 import * as actionTypes from '../actions/ActionTypes';
 
 const initialState = {
-  username: "",
-  password: ""
+  suc: "",
 }
 
-const reducer = (state = initialState, action) => {
-  
-  
+const login = (state = initialState, action) => {
+  const stateClone = {...state};
   switch(action.type) {
     case "MY_LOGIN": 
-     return {...state}
-      break;
-    default:
-     break;
+        stateClone.suc = "success fully added"; 
+        break;
+     
   }
-  
-  
+  return stateClone;
 };
 
-export default reducer;
+export default login;

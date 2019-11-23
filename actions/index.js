@@ -14,5 +14,9 @@ export const login = (
   };
 };
  
+const receiveMyApi = response => ({
+  type: 'RECEIVE_MY_API',
+  response
+});
 
 export default login
