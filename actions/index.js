@@ -4,9 +4,9 @@ export const login = (
   uname,
   pass
 ) => {
-  console.log(pass);
+ 
   return {
-    type: actionTypes.MY_LOGIN,
+    type: "MY_LOGIN",
     payload: {
       uname,
       pass

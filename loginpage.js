@@ -11,6 +11,7 @@ class LoginPage extends Component {
       username: '',
       password: '',
       error: '',
+      success: "",
     };
 
     this.handlePassChange = this.handlePassChange.bind(this);
@@ -52,7 +53,7 @@ class LoginPage extends Component {
   render() {
     // NOTE: I use data-attributes for easier E2E testing
     // but you don't need to target those (any css-selector will work)
-
+   const { login } = this.props;
     return (
       <div className="Login">
         <form >
@@ -81,14 +82,18 @@ class LoginPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  success: state.counter,
+  success: state,
 })
 
+const mapDispatchToProps = dispatch => {
+  return {
+    login : (uname, pass) => dispatch(login(uname, pass)),
+  };
+};
 
 
-const mapDispatchToProps = dispatch => ({
-   login : (uname, pass) => bindActionCreators(login(uname, pass, dispatch))
-})
+
+
 
 export default connect(
   mapStateToProps,

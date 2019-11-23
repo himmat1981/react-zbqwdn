@@ -17,9 +17,7 @@ import reducer from './reducer'
   Link
 } from "react-router-dom";
 
-const rootReducer = combineReducers({               /**/
-  counter: reducer
-});
+
 
 const initilState = {
   uname: '',
@@ -39,7 +37,7 @@ const logger = store => {
 }
 
 const store = createStore(reducer,
-null,
+initilState,
 applyMiddleware(logger, thunk)
 )
 
