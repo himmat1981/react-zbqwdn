@@ -55,9 +55,7 @@ class LoginPage extends Component {
 
     return (
       <div className="Login">
-        <form onSubmit={() => login(this.state.username,
-        this.state.password
-        )}>
+        <form >
           {
             this.state.error &&
             <h3 data-test="error" onClick={this.dismissError}>
@@ -71,7 +69,11 @@ class LoginPage extends Component {
           <label>Password</label>
           <input type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
 
-          <input type="submit" value="Log In" data-test="submit" />
+          <input type="button" value="Log In" data-test="submit" 
+          onClick={() => login(this.state.username,
+       this.state.password
+        )}
+          />
         </form>
       </div>
     );
@@ -83,7 +85,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-   login : (uname, pwd) => dispatch(login( {uname , pwd}))
+   login : (uname, pass) => dispatch(login(uname, pass))
 })
 
 export default connect(

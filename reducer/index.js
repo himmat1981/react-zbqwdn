@@ -1,21 +1,21 @@
+
 const initilState = {
-  username: '',
-  password: ""
+  uname: '',
+  pass: ""
 }
 
 
-const login = (state = initilState, payload) => {
-console.log(payload);
- 
-   switch(payload.type) {
-      case 'LOGIN':
-        return [
+const login = (state = initilState, action) => {
+  
+  console.log(action)
+   switch(action.type) {
+      case 'LOGIN_ADD':
+
+      console.log("test");
+        return {
           ...state,
-         {
-     uname: username,
-     pwd: password
-   }
-        ]
+        paylod:action.payload
+        }
  
    }
 }

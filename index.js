@@ -7,16 +7,23 @@ import Router from './Router'
 import Footer from './footer';
 import LoginPage from './loginpage'
 import { Provider } from 'react-redux'
-import { createStore   } from 'redux'
-import rootReducer from './reducer'
+import { createStore, applyMiddleware    } from 'redux'
+import thunk from 'redux-thunk';
+import login from './reducer'
  import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-
-const store = createStore(rootReducer)
+const initilState = {
+  uname: '',
+  pass: ""
+}
+const store = createStore(login,
+initilState,
+applyMiddleware(thunk)
+)
 
 class App extends Component {
   constructor() {
