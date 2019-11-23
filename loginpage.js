@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-
+import { createStore   } from 'redux'
+import rootReducer from './reducer'
+import { connect } from 'react-redux'
+import { login } from './actions'
 
 class LoginPage extends Component {
   constructor() {
@@ -30,7 +33,7 @@ class LoginPage extends Component {
     if (!this.state.password) {
       return this.setState({ error: 'Password is required' });
     }
-
+    
     return this.setState({ error: '' });
   }
 
@@ -52,7 +55,9 @@ class LoginPage extends Component {
 
     return (
       <div className="Login">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={() => login(this.state.username,
+        this.state.password
+        )}>
           {
             this.state.error &&
             <h3 data-test="error" onClick={this.dismissError}>
@@ -73,4 +78,15 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+const mapStateToProps = state => ({
+  success: state,
+})
+
+const mapDispatchToProps = dispatch => ({
+   login : (uname, pwd) => dispatch(login( {uname , pwd}))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginPage);

@@ -1,14 +1,22 @@
-const login = (state = [], action) => {
-   switch(action.type) {
-      case 'Login':
+const initilState = {
+  username: '',
+  password: ""
+}
+
+
+const login = (state = initilState, payload) => {
+console.log(payload);
+ 
+   switch(payload.type) {
+      case 'LOGIN':
         return [
           ...state,
-          {
-          username : action.uname,
-          password: action.pwd
-          }
+         {
+     uname: username,
+     pwd: password
+   }
         ]
-
+ 
    }
 }
 

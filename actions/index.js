@@ -1,7 +1,5 @@
-export const login = (username, password) => {
+export const login = (payload) => {
    type: "LOGIN",
-   uname: username,
-   pwd: password
-
-
+   payload
+console.log(payload.type);
 }

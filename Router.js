@@ -11,6 +11,7 @@ import About from './about'
 import Home from './home'
 import LoginPage from './loginpage'
 
+
 export default function Router() {
   return (
     <Router>
@@ -38,7 +39,6 @@ export default function Router() {
           <Route path="/users">
             <Users />
           </Route>
-          
           <Route path="/">
             <LoginPage />
           </Route>
