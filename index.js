@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
+
 
 import Header from './header';
 import Router from './Router'
 import Footer from './footer';
 import LoginPage from './loginpage'
+
+
 import { Provider } from 'react-redux'
-import {Button} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { createStore, compose, combineReducers, applyMiddleware    } from 'redux'
-import { View} from 'tachyons'
 import thunk from 'redux-thunk';
+
+
+
+
 import * as reducer from './reducer'
+
  import {
   BrowserRouter as Router,
   Switch,
@@ -61,7 +65,7 @@ class App extends Component {
      
       <Header takeclick={this.myclick} author="himmat" text="working in reliance jio"/>
            <LoginPage />
-            <Button variant="primary">Primary</Button>
+            
          <Footer />
       </div>
      
