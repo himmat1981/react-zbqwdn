@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+
 import fetchProductsAction from './services';
 import {getProductsError, getProducts, getProductsPending} from './reducer';
 
@@ -37,8 +38,9 @@ class LoginPage extends Component {
                 {error && <span className='product-list-error'>{error}</span>}
                 <ul>
                {products && products.map((post, i) => (
-          <li key={i}>{post.title}</li>
+          <li key={i}>{post.name}</li>
         ))} </ul>
+   
             </div>
         )
     }
@@ -46,10 +48,9 @@ class LoginPage extends Component {
 
 
 const mapStateToProps = state =>  ({
-  
-    error: getProductsError(state),
+    error: state.error,
     products: state.products,
-    pending: getProductsPending(state)
+    pending: state.pending
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

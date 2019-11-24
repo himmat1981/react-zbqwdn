@@ -31,6 +31,3 @@ export function productsReducer(state = initialState, action) {
     }
 }
 
-
-export const getProductsPending = state => state.pending;
-export const getProductsError = state => state.error;
