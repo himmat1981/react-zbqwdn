@@ -10,6 +10,7 @@ import { Provider } from 'react-redux'
 import {Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createStore, compose, combineReducers, applyMiddleware    } from 'redux'
+import { View} from 'tachyons'
 import thunk from 'redux-thunk';
 import * as reducer from './reducer'
  import {
@@ -57,6 +58,7 @@ class App extends Component {
   render() {
     return (
       <div class="wrapper">
+     
       <Header takeclick={this.myclick} author="himmat" text="working in reliance jio"/>
            <LoginPage />
             <Button variant="primary">Primary</Button>
