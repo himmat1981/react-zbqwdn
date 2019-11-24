@@ -10,7 +10,7 @@ export function fetchProductsPending() {
 export function fetchProductsSuccess(products) {
     return {
         type: actionTypes.FETCH_PRODUCTS_SUCCESS,
-        products: products
+        payload: products
     }
 }
 
