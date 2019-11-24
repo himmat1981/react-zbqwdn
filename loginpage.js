@@ -1,102 +1,58 @@
 import React, { Component } from 'react';
-import { createStore   } from 'redux'
-import rootReducer from './reducer'
-import { connect } from 'react-redux'
-import { login } from './actions'
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import fetchProductsAction from './services';
+import {getProductsError, getProducts, getProductsPending} from './reducer';
+
+//import LoadingSpinner from './SomeLoadingSpinner';
+//import ProductList from './ProductList';
 
 class LoginPage extends Component {
-  constructor() {
-    super();
-    this.state = {
-      username: '',
-      password: '',
-      error: '',
-      success: "",
-    };
-
-    this.handlePassChange = this.handlePassChange.bind(this);
-    this.handleUserChange = this.handleUserChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.dismissError = this.dismissError.bind(this);
-  }
-
-  dismissError() {
-    this.setState({ error: '' });
-  }
-
-  handleSubmit(evt) {
-    evt.preventDefault();
-
-    if (!this.state.username) {
-      return this.setState({ error: 'Username is required' });
+    constructor(props) {
+        super(props);
+        this.shouldComponentRender = this.shouldComponentRender.bind(this);
     }
 
-    if (!this.state.password) {
-      return this.setState({ error: 'Password is required' });
+    componentWillMount() {
+        const {fetchProducts} = this.props;
+        fetchProducts();
     }
-    
-    return this.setState({ error: '' });
-  }
 
-  handleUserChange(evt) {
-    this.setState({
-      username: evt.target.value,
-    });
-  };
+    shouldComponentRender() {
+        const {pending} = this.props;
+        if(this.pending === false) return false;
+        // more tests
+        return true;
+    }
 
-  handlePassChange(evt) {
-    this.setState({
-      password: evt.target.value,
-    });
-  }
+    render() {
+        const {products, error, pending} = this.props;
 
-  render() {
-    // NOTE: I use data-attributes for easier E2E testing
-    // but you don't need to target those (any css-selector will work)
-   const { login } = this.props;
-    return (
-      <div className="Login">
-        <form >
-          {
-            this.state.error &&
-            <h3 data-test="error" onClick={this.dismissError}>
-              <button onClick={this.dismissError}>✖</button>
-              {this.state.error}
-            </h3>
-          }
-         <p>{this.props.success}</p>
-          <label>User Name</label>
-          <input type="text" data-test="username" value={this.state.username} onChange={this.handleUserChange} />
+        if(!this.shouldComponentRender()) return <LoadingSpinner />
 
-          <label>Password</label>
-          <input type="password" data-test="password" value={this.state.password} onChange={this.handlePassChange} />
-
-          <input type="button" value="Log In" data-test="submit" 
-          onClick={() => login(this.state.username,
-       this.state.password
-        )}
-          />
-        </form>
-      </div>
-    );
-  }
+        return (
+            <div className='product-list-wrapper'>
+                {error && <span className='product-list-error'>{error}</span>}
+               
+            </div>
+        )
+    }
 }
 
+
 const mapStateToProps = state => ({
-  success: state.suc,
+    error: getProductsError(state),
+    products: getProducts(state),
+    pending: getProductsPending(state)
 })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    login : (uname, pass) => dispatch(login(uname, pass)),
-  };
-};
-
-
-
-
+const mapDispatchToProps = dispatch => bindActionCreators({
+    fetchProducts: fetchProductsAction
+}, dispatch)
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginPage);
+    mapStateToProps,
+    mapDispatchToProps
+)(LoginPage );

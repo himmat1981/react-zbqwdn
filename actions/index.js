@@ -1,22 +1,23 @@
 import * as actionTypes from './ActionTypes';
 
-export const login = (
-  uname,
-  pass
-) => {
- 
-  return {
-    type: "MY_LOGIN",
-    payload: {
-      uname,
-      pass
-    }
-  };
-};
- 
-const receiveMyApi = response => ({
-  type: 'RECEIVE_MY_API',
-  response
-});
 
-export default login
+export function fetchProductsPending() {
+    return {
+        type: actionTypes.FETCH_PRODUCTS_PENDING
+    }
+}
+
+export function fetchProductsSuccess(products) {
+    return {
+        type: actionTypes.FETCH_PRODUCTS_SUCCESS,
+        products: products
+    }
+}
+
+export function fetchProductsError(error) {
+    return {
+        type: actionTypes.FETCH_PRODUCTS_ERROR,
+        error: error
+    }
+}
+

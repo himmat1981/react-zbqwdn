@@ -1,18 +1,35 @@
 import * as actionTypes from '../actions/ActionTypes';
 
 const initialState = {
-  suc: "",
+    pending: false,
+    products: [],
+    error: null
 }
 
-const login = (state = initialState, action) => {
-  const stateClone = {...state};
-  switch(action.type) {
-    case "MY_LOGIN": 
-        stateClone.suc = "success fully added"; 
-        break;
-     
-  }
-  return stateClone;
-};
+export function productsReducer(state = initialState, action) {
+    switch(action.type) {
+        case actionTypes.FETCH_PRODUCTS_PENDING: 
+            return {
+                ...state,
+                pending: true
+            }
+        case actionTypes.FETCH_PRODUCTS_SUCCESS:
+            return {
+                ...state,
+                pending: false,
+                products: action.payload
+            }
+        case actionTypes.FETCH_PRODUCTS_ERROR:
+            return {
+                ...state,
+                pending: false,
+                error: action.error
+            }
+        default: 
+            return state;
+    }
+}
 
-export default login;
+export const getProducts = state => state.products;
+export const getProductsPending = state => state.pending;
+export const getProductsError = state => state.error;

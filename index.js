@@ -9,7 +9,7 @@ import LoginPage from './loginpage'
 import { Provider } from 'react-redux'
 import { createStore, compose, combineReducers, applyMiddleware    } from 'redux'
 import thunk from 'redux-thunk';
-import reducer from './reducer'
+import * as reducer from './reducer'
  import {
   BrowserRouter as Router,
   Switch,
@@ -36,7 +36,7 @@ const logger = store => {
   }
 }
 
-const store = createStore(reducer,
+const store = createStore(reducer.productsReducer,
 initilState,
 applyMiddleware(logger, thunk)
 )
