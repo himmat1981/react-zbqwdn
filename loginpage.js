@@ -29,13 +29,15 @@ class LoginPage extends Component {
 
     render() {
         const {products, error, pending} = this.props;
-
+        console.log("hello"+products);
         if(!this.shouldComponentRender()) return <LoadingSpinner />
 
         return (
             <div className='product-list-wrapper'>
                 {error && <span className='product-list-error'>{error}</span>}
-               
+               {products.map((post, i) => (
+          <li key={i}>{post.title}</li>
+        ))}
             </div>
         )
     }

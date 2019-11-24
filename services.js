@@ -6,12 +6,12 @@ function fetchProducts() {
         fetch('https://jsonplaceholder.typicode.com/todos')
         .then(res => res.json())
         .then(res => {
-           console.log(res)
+           
             if(res.error) {
                 throw(res.error);
             }
             dispatch(fetchProductsSuccess(res));
-            return res.products;
+            return res;
         })
         .catch(error => {
             dispatch(fetchProductsError(error));

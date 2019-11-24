@@ -14,10 +14,11 @@ export function productsReducer(state = initialState, action) {
                 pending: true
             }
         case actionTypes.FETCH_PRODUCTS_SUCCESS:
+         
             return {
                 ...state,
                 pending: false,
-                products: action.payload
+                products: action.products
             }
         case actionTypes.FETCH_PRODUCTS_ERROR:
             return {
