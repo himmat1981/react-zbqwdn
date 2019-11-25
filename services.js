@@ -1,6 +1,6 @@
 import {addPost, fetchProductsPending, fetchProductsSuccess, fetchProductsError} from './actions';
 
-function fetchProducts(name) {
+export function fetchProducts(name) {
    console.log("my name is "+name)
     return dispatch => {
         fetch('https://jsonplaceholder.typicode.com/posts',

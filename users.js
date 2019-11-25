@@ -32,13 +32,7 @@ class Users extends Component {
   render() {
     
     return (
-      <ul>
-        {this.state.hits.map(hit =>
-          <li key={hit.id}>
-            <a href={hit.url}>{hit.title}</a>
-          </li>
-        )}
-      </ul>
+      <div></div>
     );
   }
 }

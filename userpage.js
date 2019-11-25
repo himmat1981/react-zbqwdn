@@ -35,11 +35,13 @@ class Users extends Component {
         return (
             <div className='product-list-wrapper'>
                 {this.props.error && <span className='product-list-error'>{this.props.error}</span>}
-                <ul>
+                <table class="tachyons-tables">
+               
                {this.props.products && this.props.products.map((product, i) => (
-          <li key={i}>{product.name}</li>
-        ))} </ul>
-   
+                  <tr>
+          <td key={i}>{product.title}</td></tr>
+        ))} 
+             </table>
             </div>
         )
     }

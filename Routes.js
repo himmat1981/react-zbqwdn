@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './style.css';
-import Users from './users'
+
 import About from './about'
 import Home from './home'
 import Users from './userpage'

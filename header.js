@@ -12,11 +12,12 @@ import {Button, Container, Row, Col } from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-import Users from './users'
+
 import About from './about'
 import Home from './home'
 import Users from './userpage'
 import AddUser from './adduser'
+
 const Header = () =>  {
    return (
     <div class="flex flex-row bg-gold">
