@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import 'tachyons'
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 
 import * as myservice from './services'
 
 class AddUser extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       title: '',
       body: ''
