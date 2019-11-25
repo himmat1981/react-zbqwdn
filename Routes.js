@@ -24,7 +24,7 @@ export default function Routes() {
           <Route path="/users">
             <Users />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <Home />
           </Route>
            <Route path="/add">

@@ -21,3 +21,11 @@ export function fetchProductsError(error) {
     }
 }
 
+export function AddPost(payload) {
+   console.log(payload);
+    return {
+        type: actionTypes.ADD_POST,
+        payload: payload
+    }
+}
+

@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/ActionTypes';
 const initialState = {
     pending: false,
     products: {},
-    error: null
+    error: null,
+    success: null
 }
 
 export function productsReducer(state = initialState, action) {
@@ -19,6 +20,12 @@ export function productsReducer(state = initialState, action) {
                 ...state,
                 pending: false,
                 products: action.payload
+            }
+            
+         case actionTypes.ADD_POST:
+            return {
+                ...state,
+                success: action.payload
             }
         case actionTypes.FETCH_PRODUCTS_ERROR:
             return {

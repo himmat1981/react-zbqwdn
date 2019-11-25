@@ -20,4 +20,24 @@ function fetchProducts(name) {
     }
 }
 
-export default fetchProducts;
+export function addUser(title,body) {
+   fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: title,
+      body: title,
+      userId: 1
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+  .then(response => response.json())
+  .then(res => {
+            if(res.error) {
+                throw(res.error);
+            }
+            dispatch(AddPost("Record has been added successfully"));
+            return res;
+  })
+}

@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 
-import fetchProductsAction from './services';
-import {getProductsError, getProducts, getProductsPending} from './reducer';
+import * as fetchProductsAction from './services';
 
-//import LoadingSpinner from './SomeLoadingSpinner';
-//import ProductList from './ProductList';
+
+
 
 class Users extends Component {
     constructor(props) {
@@ -54,7 +53,7 @@ const mapStateToProps = state =>  ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchProducts: (name) => dispatch(fetchProductsAction(name))
+  fetchProducts: (name) => dispatch(fetchProductsAction.fetchProducts(name))
 })
 
 
