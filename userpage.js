@@ -10,7 +10,7 @@ import {getProductsError, getProducts, getProductsPending} from './reducer';
 //import LoadingSpinner from './SomeLoadingSpinner';
 //import ProductList from './ProductList';
 
-class LoginPage extends Component {
+class Users extends Component {
     constructor(props) {
         super(props);
         this.shouldComponentRender = this.shouldComponentRender.bind(this);
@@ -18,7 +18,7 @@ class LoginPage extends Component {
 
     componentDidMount() {
         const {fetchProducts} = this.props;
-        fetchProducts();
+        fetchProducts("yogesh");
     }
 
     shouldComponentRender() {
@@ -29,16 +29,16 @@ class LoginPage extends Component {
     }
 
     render() {
-        const {products, error, pending} = this.props;
+        
        
         if(!this.shouldComponentRender()) return <LoadingSpinner />
 
         return (
             <div className='product-list-wrapper'>
-                {error && <span className='product-list-error'>{error}</span>}
+                {this.props.error && <span className='product-list-error'>{this.props.error}</span>}
                 <ul>
-               {products && products.map((post, i) => (
-          <li key={i}>{post.name}</li>
+               {this.props.products && this.props.products.map((product, i) => (
+          <li key={i}>{product.name}</li>
         ))} </ul>
    
             </div>
@@ -53,11 +53,12 @@ const mapStateToProps = state =>  ({
     pending: state.pending
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    fetchProducts: fetchProductsAction
-}, dispatch)
+const mapDispatchToProps = dispatch => ({
+  fetchProducts: (name) => dispatch(fetchProductsAction(name))
+})
+
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoginPage );
+)(Users );

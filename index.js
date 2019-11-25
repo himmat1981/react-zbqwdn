@@ -3,9 +3,9 @@ import { render } from 'react-dom';
 
 
 import Header from './header';
-import Router from './Router'
+import Routes from './Routes'
 import Footer from './footer';
-import LoginPage from './loginpage'
+import Users from './userpage'
 
 
 import { Provider } from 'react-redux'
@@ -17,12 +17,6 @@ import thunk from 'redux-thunk';
 
 import * as reducer from './reducer'
 
- import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 
 
 
@@ -49,32 +43,22 @@ applyMiddleware(logger, thunk)
 )
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React',
-      
-    };
-  }
-  myclick = () => {
-     alert("hello");
+  constructor(props) {
+    super(props);
   }
   render() {
     return (
-      <div class="wrapper">
-     
-      <Header takeclick={this.myclick} author="himmat" text="working in reliance jio"/>
-           <LoginPage />
-            
+      <div class="wrapper"> 
+         <Header/>  
+          <Routes />  
          <Footer />
       </div>
-     
     );
   }
 }
 
 render(
   <Provider store={store}>
-     <App />
+     <App  name="himmat" designation="webdeveloper"/>
   </Provider>
   , document.getElementById('root'));

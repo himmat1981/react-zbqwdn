@@ -1,12 +1,13 @@
 import {fetchProductsPending, fetchProductsSuccess, fetchProductsError} from './actions';
 
-function fetchProducts() {
+function fetchProducts(name) {
+   console.log("my name is "+name)
     return dispatch => {
-        dispatch(fetchProductsPending());
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(res => res.json())
+        fetch('https://jsonplaceholder.typicode.com/users',
+        {
+        method: 'get',
+       }).then(res => res.json())
         .then(res => {
-           
             if(res.error) {
                 throw(res.error);
             }
