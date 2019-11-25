@@ -11,7 +11,7 @@ import About from './about'
 import Home from './home'
 import Users from './userpage'
 import 'tachyons'
-import AddUser from './AddUser'
+import AddUser from './adduser'
 
 export default function Routes() {
   return (
