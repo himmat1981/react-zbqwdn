@@ -14,7 +14,7 @@ import Users from './userpage'
 
 export default function Routes() {
   return (
-    <Router>
+    
       <div>
        <Switch>
           <Route path="/about">
@@ -28,6 +28,6 @@ export default function Routes() {
           </Route>
         </Switch>
       </div>
-    </Router>
+    
   );
 }

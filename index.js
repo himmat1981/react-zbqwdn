@@ -7,7 +7,12 @@ import Routes from './Routes'
 import Footer from './footer';
 import Users from './userpage'
 
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import { Provider } from 'react-redux'
 import { createStore, compose, combineReducers, applyMiddleware    } from 'redux'
 import thunk from 'redux-thunk';
@@ -49,10 +54,10 @@ class App extends Component {
   render() {
     return (
       <div class="wrapper"> 
-         <Router>
-         <Header/>  
-          <Routes />  
-         <Router />
+        <Router> 
+          <Header />
+            <Routes />  
+         </Router>
          <Footer />
       </div>
     );

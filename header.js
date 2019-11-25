@@ -17,9 +17,7 @@ import Home from './home'
 import Users from './userpage'
 const Header = () =>  {
    return (
-    <header className='bg tc pv4 pv5-ns'>
-     
-      <div>
+    <div>
          <nav>
           <ul class="list">
             <li>
@@ -33,13 +31,7 @@ const Header = () =>  {
             </li>
           </ul>
         </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-       
-      </div>
-   
-   </header>
+        </div>
   );
 
 }
