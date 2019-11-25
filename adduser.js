@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 import * as myservice from './services'
 
 class AddUser extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       title: '',
       body: ''
