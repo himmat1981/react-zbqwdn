@@ -33,6 +33,9 @@ const Header = () =>  {
                   <li class="fl pa1">
                     <Link to="/users">Users</Link>
                   </li>
+                  <li class="fl pa1">
+                    <Link to="/add">Add Post</Link>
+                  </li>
                </ul>
           </div>
    </div>  

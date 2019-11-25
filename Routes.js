@@ -11,6 +11,7 @@ import About from './about'
 import Home from './home'
 import Users from './userpage'
 import 'tachyons'
+import AddUser from './AddUser'
 
 export default function Routes() {
   return (
@@ -24,7 +25,10 @@ export default function Routes() {
             <Users />
           </Route>
           <Route path="/">
-            <Users />
+            <Home />
+          </Route>
+           <Route path="/add">
+            <AddUser />
           </Route>
         </Switch>
       </div>

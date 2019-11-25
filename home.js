@@ -25,11 +25,11 @@ class Home extends Component {
   render() {
     return (
       <div class="wrapper">
-      <Header takeclick={this.myclick} author="himmat" text="working in reliance jio"/>
-           <Router />
-         <Footer />
+         welcome to home
       </div>
      
     );
   }
 }
+
+export default Home;

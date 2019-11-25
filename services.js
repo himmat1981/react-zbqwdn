@@ -3,7 +3,7 @@ import {fetchProductsPending, fetchProductsSuccess, fetchProductsError} from './
 function fetchProducts(name) {
    console.log("my name is "+name)
     return dispatch => {
-        fetch('https://jsonplaceholder.typicode.com/users',
+        fetch('https://jsonplaceholder.typicode.com/posts',
         {
         method: 'get',
        }).then(res => res.json())
