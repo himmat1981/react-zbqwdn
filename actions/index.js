@@ -21,7 +21,8 @@ export function fetchProductsError(error) {
     }
 }
 
-export function AddPost(payload) {
+export function addPost(payload) {
+  console.log(payload)
    console.log(payload);
     return {
         type: actionTypes.ADD_POST,

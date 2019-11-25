@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 
-import AddUser from './services'
+import * as myservice from './services'
 
-class AddUser extends Component {
+class AddUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,11 +33,11 @@ class AddUser extends Component {
   }
 
   render() {
-   
+   const {error, success } = this.props;
     return (
       <form>
-      {this.props.error && <span className='product-list-error'>{this.props.error}</span>}
-      {this.props.success && <span className='product-list-error'>{this.props.success}</span>}
+      {error && <span className='product-list-error'>{error}</span>}
+      {success && <span className='product-list-error'>{success}</span>}
         <label>
           Title:
           <input  className="ma1" type="text" value={this.state.title} onChange={this.handleChangeTitle} />
@@ -61,7 +61,7 @@ const mapStateToProps = state =>  ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  AddUserF: (title,body) => dispatch(AddUser(title,body))
+  AddUserF: (title,body) => dispatch(myservice.addUser(title,body))
 })
 
 

@@ -1,4 +1,4 @@
-import {fetchProductsPending, fetchProductsSuccess, fetchProductsError} from './actions';
+import {addPost, fetchProductsPending, fetchProductsSuccess, fetchProductsError} from './actions';
 
 function fetchProducts(name) {
    console.log("my name is "+name)
@@ -21,23 +21,31 @@ function fetchProducts(name) {
 }
 
 export function addUser(title,body) {
-   fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify({
-      title: title,
-      body: title,
-      userId: 1
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
-  })
-  .then(response => response.json())
-  .then(res => {
-            if(res.error) {
-                throw(res.error);
-            }
-            dispatch(AddPost("Record has been added successfully"));
-            return res;
-  })
+    return dispatch => {
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: title,
+        body: body,
+        userId: 1
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+    .then(response => response.json())
+    .then(res => {
+              if(res.error) {
+                  throw(res.error);
+              }
+              console.log(res)
+              setTimeout(() => {
+        // Yay! Can invoke sync or async actions with `dispatch`
+        dispatch(addPost("Record has been added successfully"));
+      }, 1000);
+              
+              return res;
+    })
+}
+   
 }
