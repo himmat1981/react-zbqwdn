@@ -10,12 +10,12 @@ import Users from './users'
 import About from './about'
 import Home from './home'
 import Users from './userpage'
-
+import 'tachyons'
 
 export default function Routes() {
   return (
     
-      <div>
+      <div class="h-auto pa2 ma2">
        <Switch>
           <Route path="/about">
             <About />

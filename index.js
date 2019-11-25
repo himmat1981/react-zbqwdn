@@ -6,6 +6,7 @@ import Header from './header';
 import Routes from './Routes'
 import Footer from './footer';
 import Users from './userpage'
+import 'tachyons'
 
 import {
   BrowserRouter as Router,
