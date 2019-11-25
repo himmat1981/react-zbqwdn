@@ -21,7 +21,7 @@ class AddUser extends React.Component {
   componentDidMount() {
      this.setState({title: ""});
      this.setState({body: ""});
-      this.setState({success: ""});
+     this.setState({success: ""});
   }
   handleChangeTitle(event) {
     this.setState({title: event.target.value});
