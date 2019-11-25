@@ -28,8 +28,7 @@ import * as reducer from './reducer'
 
 
 const initilState = {
-  uname: '',
-  pass: ""
+  success: '',
 }
 
 /* MiddleWare: logger */

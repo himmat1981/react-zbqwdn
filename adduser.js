@@ -16,10 +16,14 @@ class AddUser extends React.Component {
     };
 
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
-     this.handleChangeBody = this.handleChangeBody.bind(this);
+    this.handleChangeBody = this.handleChangeBody.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  componentDidMount() {
+     this.setState({title: ""});
+     this.setState({body: ""});
+      this.setState({success: ""});
+  }
   handleChangeTitle(event) {
     this.setState({title: event.target.value});
   }
@@ -37,7 +41,7 @@ class AddUser extends React.Component {
     return (
       <form>
       {error && <span className='product-list-error'>{error}</span>}
-      {success && <span className='product-list-error'>{success}</span>}
+      {this.props.success && <span className='product-list-error'>{this.props.success}</span>}
         <label>
           Title:
           <input  className="ma1" type="text" value={this.state.title} onChange={this.handleChangeTitle} />
