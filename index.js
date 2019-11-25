@@ -49,8 +49,10 @@ class App extends Component {
   render() {
     return (
       <div class="wrapper"> 
+         <Router>
          <Header/>  
           <Routes />  
+         <Router />
          <Footer />
       </div>
     );

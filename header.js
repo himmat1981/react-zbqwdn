@@ -18,7 +18,7 @@ import Users from './userpage'
 const Header = () =>  {
    return (
     <header className='bg tc pv4 pv5-ns'>
-      <Router>
+     
       <div>
          <nav>
           <ul class="list">
@@ -38,7 +38,7 @@ const Header = () =>  {
             renders the first one that matches the current URL. */}
        
       </div>
-    </Router>
+   
    </header>
   );
 
