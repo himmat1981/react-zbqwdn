@@ -36,10 +36,23 @@ class Users extends Component {
             <div className='product-list-wrapper'>
                 {this.props.error && <span className='product-list-error'>{this.props.error}</span>}
                 <table class="tachyons-tables dt">
+                <thead>
+                    <th>Name</th>
+                     <th>Email</th>
+                      <th>Phone</th>
+                       <th>Website</th>
+                </thead>
                <tbody>
                {this.props.products && this.props.products.map((product, i) => (
                   <tr>
-          <td key={i}>{product.title}</td></tr>
+          <td key={i}>{product.name}</td>
+           <td key={i}>{product.email}</td>
+            <td key={i}>{product.phone}</td>
+             <td key={i}>{product.website}</td>
+           <td key={i}>Delete</td>
+          
+          </tr>
+          
         ))} </tbody>
              </table>
             </div>
