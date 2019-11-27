@@ -7,21 +7,23 @@ import {
 } from "react-router-dom";
 import './style.css';
 import asyncComponent from './AsyncComponent'
-import About from './about'
-import Home from './home'
-import Users from './userpage'
+
 import 'tachyons'
-import AddUser from './adduser'
+
 
 const Home = asyncComponent(() =>
     import('./home').then(module => module.default)
 )
 
-const Maps = asyncComponent(() =>
+const AddUser = asyncComponent(() =>
     import('./adduser').then(module => module.default)
 )
 
-const Blog = asyncComponent(() =>
+const About = asyncComponent(() =>
+    import('./about').then(module => module.default)
+)
+
+const Users  = asyncComponent(() =>
     import('./userpage').then(module => module.default)
 )
 
