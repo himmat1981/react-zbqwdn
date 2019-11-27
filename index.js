@@ -18,7 +18,9 @@ import {
 import { Provider } from 'react-redux'
 import { createStore, compose, combineReducers, applyMiddleware    } from 'redux'
 import thunk from 'redux-thunk';
+import createBrowserHistory from 'history/createBrowserHistory';
 
+const history = createBrowserHistory();
 
 
 
@@ -55,7 +57,7 @@ class App extends Component {
   render() {
     return (
       <div class="wrapper"> 
-        <Router> 
+        <Router  history={history}> 
           <Header />
             <Routes />  
          </Router>
