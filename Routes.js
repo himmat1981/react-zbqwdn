@@ -30,18 +30,14 @@ export default function Routes() {
     
       <div class="h-auto pa2 ma2">
        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-           <Route path="/add">
-            <AddUser />
-          </Route>
+          <Route path="/about" component={About} />
+            
+          <Route path="/users" component={Users} />
+          
+          <Route path="/home" component={Home} />
+         
+           <Route path="/add" component={AddUser} />
+         
         </Switch>
       </div>
     
