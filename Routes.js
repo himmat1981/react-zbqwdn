@@ -39,6 +39,7 @@ export default function Routes() {
           <Route path="/home" component={Home} />
          
            <Route path="/add" component={AddUser} />
+           <Route path="/" component={Home} />
          
         </Switch>
       </div>
