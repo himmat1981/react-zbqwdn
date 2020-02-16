@@ -13,10 +13,11 @@ class Users extends Component {
     }
 
     componentDidMount() {
-        const {fetchProducts} = this.props;
-        fetchProducts("yogesh");
+        const {fetchProducts, myProducts } = this.props;
+        fetchProducts();
+        myProducts();
     }
-
+ 
     shouldComponentRender() {
         const {pending} = this.props;
         if(this.pending === false) return false;
@@ -40,6 +41,7 @@ class Users extends Component {
                        <th>Website</th>
                 </thead>
                <tbody>
+               <tr> {this.props.mysuccess } </tr>
                {this.props.products && this.props.products.map((product, i) => (
                   <tr>
           <td key={i}>{product.name}</td>
@@ -51,6 +53,20 @@ class Users extends Component {
           </tr>
           
         ))} </tbody>
+
+<tbody>
+               {this.props.myproductslist && this.props.myproductslist.map((product, i) => (
+                  <tr>
+          <td key={i}>{product.name}</td>
+           <td key={i}>{product.email}</td>
+            <td key={i}>{product.phone}</td>
+             <td key={i}>{product.website}</td>
+           <td key={i}>Delete</td>
+          
+          </tr>
+          
+        ))} </tbody>
+
              </table>
             </div>
         )
@@ -61,10 +77,14 @@ class Users extends Component {
 const mapStateToProps = state =>  ({
     error: state.error,
     products: state.products,
-    pending: state.pending
+    myproductslist: state.products,
+    pending: state.pending,
+    mysuccess: state.success
 })
 
 const mapDispatchToProps = dispatch => ({
+  
+  myProducts: (name) => dispatch(fetchProductsAction.fetchProducts(name)),
   fetchProducts: (name) => dispatch(fetchProductsAction.fetchProducts(name))
 })
 
